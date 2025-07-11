@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>個人履歷-前端</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(to right, #e0f2fe, #f0f9ff);
+      color: #333;
+    }
+
+    header {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    .profile {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 2rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+    }
+
+    .profile-img {
+      flex: 0 0 180px;
+      margin-right: 2rem;
+      text-align: center;
+    }
+
+    .profile-img img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #3b82f6;
+    }
+
+    .profile-info {
+      flex: 1;
+    }
+
+    nav {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    nav button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      margin: 0 0.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    nav button:hover {
+      background: #2563eb;
+    }
+
+    .card {
+      display: none;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      animation: fadeIn 0.4s ease;
+    }
+
+    .card.active {
+      display: block;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .profile {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .profile-img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      nav button {
+        margin: 0.5rem 0.25rem;
+        width: 40%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>您好，我是謝重易</h1>
+    <p>今年畢業於靜宜大學資訊管理學系</p>
+  </header>
+
+  <div class="container">
+    <div class="profile">
+      <div class="profile-img">
+        <img src="https://drive.google.com/file/d/1XTIa_C-QKJ9Bu-qghwLraM1d7WcOeqeQ/view?usp=sharing" alt="大頭照">
+        <!-- 將 your-photo.jpg 換成你的大頭貼檔案名稱 -->
+      </div>
+      <div class="profile-info">
+        <h2>自我介紹</h2>
+        <p>你好，我是一位來自台中的前端開發者，熟悉 HTML/CSS/JavaScript，擅長打造互動式網站與響應式設計。熱愛使用者體驗與視覺設計，並持續學習框架如 React 與 Vue。</p>
+      </div>
+    </div>
+
+    <nav>
+      <button onclick="switchTab('skills')">技能</button>
+      <button onclick="switchTab('projects')">作品集</button>
+      <button onclick="switchTab('contact')">聯絡方式</button>
+    </nav>
+
+    <section id="skills" class="card active">
+      <h2>技能專長</h2>
+      <ul>
+        <li>HTML5 / CSS3 / SCSS</li>
+        <li>JavaScript (ES6+) / DOM 操作</li>
+        <li>RWD 響應式設計</li>
+        <li>Git / GitHub 團隊合作</li>
+        <li>Figma / UI 設計轉碼</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="card">
+      <h2>作品集</h2>
+      <ul>
+        <li><a href="https://yourproject1.com" target="_blank">個人作品首頁</a></li>
+        <li><a href="https://yourproject2.com" target="_blank">Todo List JS 工具</a></li>
+        <li><a href="https://yourproject3.com" target="_blank">互動式動畫網頁</a></li>
+      </ul>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>聯絡資訊</h2>
+      <p>Email：<a href="mailto:yourmail@example.com">yourmail@example.com</a></p>
+      <p>GitHub：<a href="https://github.com/yourname" target="_blank">github.com/yourname</a></p>
+      <p>LinkedIn：<a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+    </section>
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll(".card").forEach((el) => {
+        el.classList.remove("active");
+      });
+      document.getElementById(tabId).classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
